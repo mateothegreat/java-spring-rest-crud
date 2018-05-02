@@ -23,6 +23,12 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HeaderToolbarDropdownComponent} from './header-toolbar-dropdown/header-toolbar-dropdown.component';
 import {ToastrModule} from 'ngx-toastr';
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
+import {ClientsComponent} from './clients/clients.component';
+import {ClientsManageComponent} from './clients-manage/clients-manage.component';
+import {SettingsUsersComponent} from './settings-users/settings-users.component';
+import {SettingsUsersManageComponent} from './settings-users-manage/settings-users-manage.component';
+import {SeedModule} from '@mateothegreat/angular-npm-module-seed';
+import {NgUiDatatableModule} from '@mateothegreat/ng-ui-datatable';
 
 @NgModule({
     declarations: [
@@ -40,11 +46,17 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
         CakesComponent,
         CakesManageComponent,
         CakesCreateComponent,
-        HeaderToolbarDropdownComponent
+        HeaderToolbarDropdownComponent,
+        ClientsComponent,
+        ClientsManageComponent,
+        SettingsUsersComponent,
+        SettingsUsersManageComponent
 
     ],
     imports: [
 
+        NgUiDatatableModule,
+        SeedModule,
         BrowserModule,
         BrowserAnimationsModule,
         SharedModule,
@@ -67,6 +79,21 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 
         }, {
 
+            path: 'clients',
+            component: ClientsComponent
+
+        }, {
+
+            path: 'clients/create',
+            component: ClientsManageComponent
+
+        }, {
+
+            path: 'clients/:clientId',
+            component: ClientsManageComponent
+
+        }, {
+
             path: 'cakes',
             component: CakesComponent
 
@@ -84,6 +111,16 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 
             path: 'settings',
             component: SettingsComponent
+
+        }, {
+
+            path: 'settings/users',
+            component: SettingsUsersComponent
+
+        }, {
+
+            path: 'settings/users/:userId',
+            component: SettingsUsersComponent
 
         }, {
 

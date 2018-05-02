@@ -30,8 +30,6 @@ export class CakesComponent implements OnInit {
 
     public ngOnInit() {
 
-        // this.datatableRef.stream$.subscribe((e) => this.setPage(e as PageRequest));
-
         this.datatableRef.clicks$.subscribe((cake: Cake) => {
 
             if (cake.id) {

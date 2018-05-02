@@ -5,11 +5,11 @@
         <ul class="nav">
 
             <app-header-toolbar-item title="Dashboard" path="/dashboard"></app-header-toolbar-item>
+            <app-header-toolbar-item title="Clients" path="/clients"></app-header-toolbar-item>
             <app-header-toolbar-item title="Cakes" path="/cakes"></app-header-toolbar-item>
 
-            <app-header-toolbar-dropdown title="Settings" [items]="settingsItems"></app-header-toolbar-dropdown>
-
-            <!--<app-header-toolbar-item title="Dashboard" path="/dashboard"></app-header-toolbar-item>-->
+            <app-header-toolbar-dropdown title="Settings" path="/settings"
+                                         [items]="settingsItems"></app-header-toolbar-dropdown>
 
         </ul>
 

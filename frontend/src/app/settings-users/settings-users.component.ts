@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-    selector: 'app-settings',
-    templateUrl: './settings.component.html',
-    styleUrls: ['./settings.component.scss']
+    selector: 'app-settings-users',
+    templateUrl: './settings-users.component.html',
+    styleUrls: ['./settings-users.component.scss']
 })
-export class SettingsComponent implements OnInit {
+export class SettingsUsersComponent implements OnInit {
+
 
     public crumbs: any[] = [{
 
@@ -17,6 +18,11 @@ export class SettingsComponent implements OnInit {
         path: '/settings',
         title: 'Settings'
 
+    }, {
+
+        path: '/users',
+        title: 'Users'
+
     }];
 
     public constructor() {
@@ -24,5 +30,4 @@ export class SettingsComponent implements OnInit {
 
     public ngOnInit() {
     }
-
 }

@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class HeaderToolbarDropdownComponent implements OnInit {
 
     @Input() public title: string;
+    @Input() public path: string;
     @Input() public items: any[];
 
     public constructor() {
