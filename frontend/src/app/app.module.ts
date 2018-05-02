@@ -55,8 +55,6 @@ import {NgUiDatatableModule} from '@mateothegreat/ng-ui-datatable';
     ],
     imports: [
 
-        NgUiDatatableModule,
-        SeedModule,
         BrowserModule,
         BrowserAnimationsModule,
         SharedModule,
