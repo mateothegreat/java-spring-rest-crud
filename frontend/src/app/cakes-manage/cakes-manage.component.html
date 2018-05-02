@@ -1,4 +1,5 @@
-<app-header-breadcrumbs title="Manage" [crumbs]="crumbs"></app-header-breadcrumbs>
+<app-header-breadcrumbs [title]="(cake?.id) ? 'Manage Cake': 'Create Cake'"
+                        [crumbs]="crumbs"></app-header-breadcrumbs>
 
 <table>
 

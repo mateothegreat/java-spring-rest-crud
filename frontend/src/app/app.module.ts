@@ -16,10 +16,13 @@ import {CakesComponent} from './cakes/cakes.component';
 import {DataTableComponent} from './_lib/DataTableComponent';
 import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 import {CakesService} from './_lib/cakes.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CakesManageComponent} from './cakes-manage/cakes-manage.component';
 import {CakesCreateComponent} from './cakes-create/cakes-create.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HeaderToolbarDropdownComponent} from './header-toolbar-dropdown/header-toolbar-dropdown.component';
+import {ToastrModule} from 'ngx-toastr';
+import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 
 @NgModule({
     declarations: [
@@ -36,7 +39,8 @@ import {ReactiveFormsModule} from '@angular/forms';
         SettingsComponent,
         CakesComponent,
         CakesManageComponent,
-        CakesCreateComponent
+        CakesCreateComponent,
+        HeaderToolbarDropdownComponent
 
     ],
     imports: [
@@ -47,7 +51,15 @@ import {ReactiveFormsModule} from '@angular/forms';
         NgxDatatableModule,
         HttpClientModule,
         ReactiveFormsModule,
-
+        NgProgressModule,
+        ToastrModule.forRoot({
+            timeOut: 5000,
+            positionClass: 'toast-bottom-right',
+            preventDuplicates: true,
+            progressBar: true,
+            enableHtml: true,
+            closeButton: true
+        }),
         RouterModule.forRoot([{
 
             path: 'dashboard',
@@ -83,6 +95,11 @@ import {ReactiveFormsModule} from '@angular/forms';
 
     ],
     providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: NgProgressInterceptor,
+            multi: true
+        },
         CakesService
     ],
     bootstrap: [

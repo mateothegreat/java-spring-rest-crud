@@ -1,0 +1,24 @@
+<li class="nav-item with-sub">
+
+    <a class="nav-link" href="#" data-toggle="dropdown">
+
+        <i class="icon ion-ios-gear-outline"></i>
+        <span>{{ title }}</span>
+
+    </a>
+
+    <div class="sub-item">
+
+        <ul>
+
+            <li *ngFor="let item of items">
+
+                <a [routerLink]="[item.path]">{{ item.title }}</a>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</li>

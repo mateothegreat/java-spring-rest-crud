@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {CakesService} from '../_lib/cakes.service';
 import {Cake} from '../_lib/Cake';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
     selector: 'app-cakes-manage',
@@ -36,7 +37,8 @@ export class CakesManageComponent implements OnInit {
 
     public constructor(private router: Router,
                        private route: ActivatedRoute,
-                       private cakesService: CakesService) {
+                       private cakesService: CakesService,
+                       private toastr: ToastrService) {
 
         this.route.params.subscribe((params) => {
 
@@ -65,6 +67,8 @@ export class CakesManageComponent implements OnInit {
 
         this.cakesService.deleteById(this.cake.id).subscribe(() => {
 
+            this.toastr.success(`The cake "${this.cake.title}" has been deleted!`);
+
             this.router.navigate(['/cakes']);
 
         });
@@ -73,11 +77,11 @@ export class CakesManageComponent implements OnInit {
 
     public onButtonSaveClick(e: any): void {
 
-        if(this.cake && this.cake.id) {
+        if (this.cake && this.cake.id) {
 
             this.cakesService.updateById(this.cake.id, this.formGroup.value).subscribe((e: any) => {
 
-                console.log(e);
+                this.toastr.success(`Your changes have been saved!'`);
 
             });
 
@@ -85,6 +89,7 @@ export class CakesManageComponent implements OnInit {
 
             this.cakesService.create(this.formGroup.value).subscribe((cake: Cake) => {
 
+                this.toastr.success(`The cake "${cake.title}" has been created!`);
                 this.router.navigate([`/cakes/${cake.id}`]);
 
             });
