@@ -18,4 +18,23 @@ export class CakesService {
 
     }
 
+    public getById(id: number): Observable<Cake> {
+
+        return this.httpClient.get<Cake>(`${CakesService.BASE_URL}/cakes/${id}`);
+
+    }
+
+    public deleteById(id: number): Observable<Cake> {
+
+        return this.httpClient.delete<Cake>(`${CakesService.BASE_URL}/cakes/${id}`);
+
+    }
+
+    public updateById(id: number, cake: Cake): Observable<Cake> {
+
+        return this.httpClient.put<Cake>(`${CakesService.BASE_URL}/cakes/${id}`, cake);
+
+    }
+
+
 }

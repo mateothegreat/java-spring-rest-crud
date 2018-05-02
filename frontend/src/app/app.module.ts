@@ -18,7 +18,8 @@ import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 import {CakesService} from './_lib/cakes.service';
 import {HttpClientModule} from '@angular/common/http';
 import {CakesManageComponent} from './cakes-manage/cakes-manage.component';
-import { CakesCreateComponent } from './cakes-create/cakes-create.component';
+import {CakesCreateComponent} from './cakes-create/cakes-create.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -45,6 +46,7 @@ import { CakesCreateComponent } from './cakes-create/cakes-create.component';
         SharedModule,
         NgxDatatableModule,
         HttpClientModule,
+        ReactiveFormsModule,
 
         RouterModule.forRoot([{
 
