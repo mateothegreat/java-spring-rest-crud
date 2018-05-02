@@ -18,7 +18,7 @@ public class Cake {
     @GenericGenerator(name = "native", strategy = "native")
     @Range(max = 4294967295L)
     @Column(nullable = false, updatable = false, unique = true)
-    private Long id;
+    public Long id;
 
     private String title;
     private String description;

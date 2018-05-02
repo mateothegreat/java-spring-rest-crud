@@ -40,17 +40,19 @@ export class CakesManageComponent implements OnInit {
 
         this.route.params.subscribe((params) => {
 
-            this.cakesService.getById(params.cakeId).subscribe((cake: Cake) => {
+            if (params.cakeId) {
 
-                console.log(cake);
+                this.cakesService.getById(params.cakeId).subscribe((cake: Cake) => {
 
-                this.cake = cake;
+                    this.cake = cake;
 
-                this.formGroup.controls['title'].setValue(cake.title);
-                this.formGroup.controls['description'].setValue(cake.description);
-                this.formGroup.controls['image'].setValue(cake.image);
+                    this.formGroup.controls['title'].setValue(cake.title);
+                    this.formGroup.controls['description'].setValue(cake.description);
+                    this.formGroup.controls['image'].setValue(cake.image);
 
-            });
+                });
+
+            }
 
         });
 
@@ -71,11 +73,23 @@ export class CakesManageComponent implements OnInit {
 
     public onButtonSaveClick(e: any): void {
 
-        this.cakesService.updateById(this.cake.id, this.formGroup.value).subscribe((e: any) => {
+        if(this.cake && this.cake.id) {
 
-            console.log(e);
+            this.cakesService.updateById(this.cake.id, this.formGroup.value).subscribe((e: any) => {
 
-        });
+                console.log(e);
+
+            });
+
+        } else {
+
+            this.cakesService.create(this.formGroup.value).subscribe((cake: Cake) => {
+
+                this.router.navigate([`/cakes/${cake.id}`]);
+
+            });
+
+        }
 
     }
 

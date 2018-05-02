@@ -18,6 +18,12 @@ export class CakesService {
 
     }
 
+    public create(cake: Cake): Observable<Cake> {
+
+        return this.httpClient.post<Cake>(`${CakesService.BASE_URL}/cakes`, cake);
+
+    }
+
     public getById(id: number): Observable<Cake> {
 
         return this.httpClient.get<Cake>(`${CakesService.BASE_URL}/cakes/${id}`);

@@ -50,14 +50,10 @@ export class CakesComponent implements OnInit {
 
     }
 
-    // private setPage(pageRequest: PageRequest) {
-    //
-    //     this.devicesService.search(pageRequest).subscribe((results: any) => {
-    //
-    //         this.datatableRef.setPage(pageRequest, results);
-    //
-    //     });
-    //
-    // }
+    public onButtonCreateClick(e: any) {
+
+        this.router.navigate(['/cakes/create']);
+
+    }
 
 }

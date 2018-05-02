@@ -54,6 +54,8 @@ public class CakesController {
     @PutMapping(path = "/{id}")
     public ResponseEntity<Cake> updateCate(@PathVariable("id") Long id, @RequestBody Cake cake) {
 
+        cake.id = id;
+
         return new ResponseEntity<>(repository.save(cake), HttpStatus.OK);
 
     }
