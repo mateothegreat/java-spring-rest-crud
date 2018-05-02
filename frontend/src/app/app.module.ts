@@ -60,6 +60,11 @@ import {ReactiveFormsModule} from '@angular/forms';
 
         }, {
 
+            path: 'cakes/create',
+            component: CakesManageComponent
+
+        }, {
+
             path: 'cakes/:cakeId',
             component: CakesManageComponent
 
