@@ -27,8 +27,6 @@ import {ClientsComponent} from './clients/clients.component';
 import {ClientsManageComponent} from './clients-manage/clients-manage.component';
 import {SettingsUsersComponent} from './settings-users/settings-users.component';
 import {SettingsUsersManageComponent} from './settings-users-manage/settings-users-manage.component';
-import {SeedModule} from '@mateothegreat/angular-npm-module-seed';
-import {NgUiDatatableModule} from '@mateothegreat/ng-ui-datatable';
 
 @NgModule({
     declarations: [

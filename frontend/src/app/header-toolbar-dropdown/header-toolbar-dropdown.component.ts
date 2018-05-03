@@ -10,7 +10,8 @@ export class HeaderToolbarDropdownComponent implements OnInit {
     @Input() public title: string;
     @Input() public path: string;
     @Input() public items: any[];
-
+    @Input() public icon: string;
+    
     public constructor() {
     }
 

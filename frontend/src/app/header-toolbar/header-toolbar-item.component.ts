@@ -6,11 +6,12 @@ import {Component, Input, ViewEncapsulation} from '@angular/core';
     encapsulation: ViewEncapsulation.Emulated,
     template: `
 
-        <li class="nav-item">
+        <li class="nav-item" routerLinkActive="active">
 
             <a class="nav-link" [routerLink]="[path]">
 
-                <!--<i class="icon ion-ios-analytics-outline"></i>-->
+                <i *ngIf="icon" class="icon fas {{ icon }}"></i>
+                
                 <span>{{ title }}</span>
 
             </a>
@@ -25,5 +26,6 @@ export class HeaderToolbarItemComponent {
 
     @Input() public title: string;
     @Input() public path: string;
+    @Input() public icon: string;
 
 }
